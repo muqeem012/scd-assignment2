@@ -1,0 +1,15 @@
+name: Custom Workflow for Performance Metrics
+
+on:
+  workflow_dispatch:
+
+jobs:
+  performance-metrics:
+    name: 'Generate Performance Metrics'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v2
+
+      - name: 'Generate Metrics'
+        run: python scripts/generate_metrics.py
