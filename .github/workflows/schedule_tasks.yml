@@ -1,0 +1,19 @@
+name: Scheduled Build Check
+
+on:
+  schedule:
+    - cron: '0 2 * * *' 
+
+jobs:
+  build:
+    name: 'Run Build Check'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v2
+
+      - name: 'Install Dependencies'
+        run: npm install
+
+      - name: 'Build Project'
+        run: npm run build
