@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config({ path: './config/config.env' });
 const mongoose = require('./db_config/mongoose')
-const { MongoClient } = require('mongodb');
+// const { MongoClient } = require('mongodb');
 
 const port = process.env.PORT
 const app = express();
@@ -16,13 +16,13 @@ app.use('/api/v1/contact/update', require('./routes/contact'))
 
 async function start(){
     try{
-        mongoose.connectToServer( function( err, client ) {
-            if (err) console.log(err);
-            // start the rest of your app here
-            app.listen(port, () => {
-                console.log('You are listening on port : ', port)
-            })
-          } );
+        // mongoose.connectToServer( function( err, client ) {
+        //     if (err) console.log(err);
+        //     // start the rest of your app here
+        //     app.listen(port, () => {
+        //         console.log('You are listening on port : ', port)
+        //     })
+        //   } );
         await mongoose.connectToServer().catch(console.error);
         app.listen(port, () => {
             console.log('You are listening on port : ', port)
@@ -31,6 +31,10 @@ async function start(){
         console.log(e)
     }
 }
+
+app.get('/api/data', (req, res) => {
+    res.json({ message: 'Hello, world!' });
+  });
 
 
 start();
