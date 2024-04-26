@@ -1,0 +1,24 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'
+
+jobs:
+  update-dependencies:
+    name: 'Check for Dependency Updates'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v2
+
+      - name: 'Update Dependencies'
+        run: npm update
+
+      - name: 'Create Pull Request'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: 'Update dependencies'
+          title: 'Update dependencies'
+          body: 'This is an auto-generated PR with dependency updates.'
+          branch: 'update-dependencies'
