@@ -1,54 +1,54 @@
-// const { MongoClient } = require('mongodb');
-// const uri = "mongodb+srv://root:root@cluster0.f73u0.mongodb.net/test?retryWrites=true&w=majority";
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://muqeem:muqeemmongodb@muqeemcluster.f73u0.mongodb.net/test?retryWrites=true&w=majority";
  
-// const client = new MongoClient(uri);
+const client = new MongoClient(uri);
  
-// async function main(){
-//     /**
-//      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-//      * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-//      */
+async function main(){
+    /**
+     * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
+     * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
+     */
     
-//     try {
-//         console.log('Connecting to DB')
-//         // Connect to the MongoDB cluster
-//         await client.connect();
+    try {
+        console.log('Connecting to DB')
+        // Connect to the MongoDB cluster
+        await client.connect();
  
-//         // Make the appropriate DB calls
-//         await  listDatabases(client);
+        // Make the appropriate DB calls
+        await  listDatabases(client);
  
-//     } catch (e) {
-//         console.error(e);
-//     } finally {
-//         await client.close();
-//     }
-// }
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
 
-// async function listDatabases(client){
-//     databasesList = await client.db().admin().listDatabases();
+async function listDatabases(client){
+    databasesList = await client.db().admin().listDatabases();
  
-//     console.log("Databases:");
-//     databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-// };
+    console.log("Databases:");
+    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+};
  
 
-// module.exports = {main,client}
+module.exports = {main,client}
 
 
 const MongoClient = require( 'mongodb' ).MongoClient;
-const url = "mongodb+srv://root:root@cluster0.f73u0.mongodb.net/test?retryWrites=true&w=majority";
+const url = "mongodb+srv://muqeem:muqeemmongodb@muqeemcluster.f73u0.mongodb.net/test?retryWrites=true&w=majority";
 
 var _db;
 
 module.exports = {
 
-  // connectToServer: function( callback ) {
-  //   MongoClient.connect( url,  { useNewUrlParser: true }, function( err, client ) {
-  //     console.log('connected!!')
-  //     _db  = client.db('test');
-  //     return callback( err );
-  //   } );
-  // },
+  connectToServer: function( callback ) {
+    MongoClient.connect( url,  { useNewUrlParser: true }, function( err, client ) {
+      console.log('connected!!')
+      _db  = client.db('test');
+      return callback( err );
+    } );
+  },
   connectToServer: async function() {
     try{
       const client = await MongoClient.connect( url,  { useNewUrlParser: true });
