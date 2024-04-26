@@ -1,0 +1,27 @@
+name: Workflow for continuous integration
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: 'Run Test Cases'
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v2
+
+      - name: 'Install Dependencies'
+        run: npm install
+
+      - name: 'Run Tests'
+        run: npm run test
+      
+
+
+
+
