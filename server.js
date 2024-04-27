@@ -1,14 +1,3 @@
-/*
-                            server.file in dev branch
-/*
-
-
-
-
-
-
-
-
 const express = require('express');
 const cors = require('cors');
 // require('dotenv').config({ path: './config/config.env' });
