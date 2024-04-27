@@ -29,7 +29,7 @@ describe('GET /api/data', () => {
 //       })
 //     expect(res.statusCode).toEqual(200)
 //   })
-})
+//})
 
 // describe('Get Endpoints', () => {
 //     it('should get  all contacts', async () => {
