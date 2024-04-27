@@ -4,7 +4,6 @@ require('dotenv').config({ path: './config/config.env' });
 const mongoose = require('./db_config/mongoose')
 // const { MongoClient } = require('mongodb');
 
-const port = process.env.PORT
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -24,8 +23,8 @@ async function start(){
         //     })
         //   } );
         await mongoose.connectToServer().catch(console.error);
-        app.listen(port, () => {
-            console.log('You are listening on port : ', port)
+        app.listen(4000, () => {
+            console.log('You are listening on port : ', 4000)
         })
     }catch(e){
         console.log(e)
