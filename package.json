@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "jest --testTimeout=10000"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
