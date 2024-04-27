@@ -1,5 +1,5 @@
 // const { MongoClient } = require('mongodb');
-// const uri = "mongodb+srv://root:root@cluster0.f73u0.mongodb.net/test?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://nomi221b:Lumnoc02@nodexexpress.ipiy6en.mongodb.net/test?retryWrites=true&w=majority";
  
 // const client = new MongoClient(uri);
  
@@ -36,7 +36,7 @@
 
 
 const MongoClient = require( 'mongodb' ).MongoClient;
-const url = "mongodb+srv://root:root@cluster0.f73u0.mongodb.net/test?retryWrites=true&w=majority";
+const url = "mongodb+srv://nomi221b:Lumnoc02@nodexexpress.ipiy6en.mongodb.net/test?retryWrites=true&w=majority";
 
 var _db;
 
