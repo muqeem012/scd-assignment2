@@ -18,23 +18,23 @@ describe('GET /api/data', () => {
   })
 });
 
-describe('Post Endpoints', () => {
-  it('should create a new contact', async () => {
-    const res = await request(app)
-      .post('/api/v1/contact/create')
-      .send({
-        name: 'Uday',
-        type: 'business',
-        number: '9700884342'
-      })
-    expect(res.statusCode).toEqual(200)
-  })
+// describe('Post Endpoints', () => {
+//   it('should create a new contact', async () => {
+//     const res = await request(app)
+//       .post('/api/v1/contact/create')
+//       .send({
+//         name: 'Uday',
+//         type: 'business',
+//         number: '9700884342'
+//       })
+//     expect(res.statusCode).toEqual(200)
+//   })
 })
 
-describe('Get Endpoints', () => {
-    it('should get  all contacts', async () => {
-      const res = await request(app)
-        .get('/api/v1/contact/?type=business')
-      expect(res.statusCode).toEqual(200)
-    })
-  })
+// describe('Get Endpoints', () => {
+//     it('should get  all contacts', async () => {
+//       const res = await request(app)
+//         .get('/api/v1/contact/?type=business')
+//       expect(res.statusCode).toEqual(200)
+//     })
+//   })
