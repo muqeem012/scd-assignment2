@@ -1,6 +1,5 @@
 const request = require('supertest')
 const app = require('../server')
-const mongoose = require('../db_config/mongoose')
 
 describe('GET /api/data', () => {
   it('responds with JSON', async () => {
