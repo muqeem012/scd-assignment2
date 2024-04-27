@@ -32,7 +32,7 @@ async function start(){
 }
 
 app.get('/api/data', (req, res) => {
-    res.json({ message: 'Hello, world!' });
+    res.json({ message: 'muqeem is a looser' });
   });
 
 app.listen(5000, () => {
