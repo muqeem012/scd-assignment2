@@ -35,6 +35,8 @@ app.get('/api/data', (req, res) => {
     res.json({ message: 'Hello, world!' });
   });
 
+app.listen(3000, () => {
+            console.log('You are listening on port : ', 3000)
+        })
 
-start();
 module.exports = app;
