@@ -1,25 +1,39 @@
-name: Documentation Deployment
+name: 'Publish Documentation'
 
 on:
   push:
     branches:
       - main
-    paths:
-      - 'docs/**'
 
 jobs:
-  deploy-docs:
-    name: 'Build and Deploy Documentation'
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: 'Checkout Repository'
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: 'Build Documentation'
-        run: mkdocs build
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
 
-      - name: 'Deploy to GitHub Pages'
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install sphinx sphinx-rtd-theme
+
+      - name: Build Documentation
+        run: |
+          cd docs/
+          make html
+
+      - name: Run ghp-import
+        run: |
+          ghp-import -n -p -r docs/_build/html
+
+      - name: Publish Documentation
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './site'
+          publish_dir: ./docs/_build/html
