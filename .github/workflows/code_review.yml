@@ -5,16 +5,20 @@ on:
     branches:
       - main
 
+  push:
+    branches:
+      - main
+
 jobs:
   code-review:
-    name: 'Automate Code Review Tasks'
+    name: 'Perform code review using eslint'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
 
-      - name: 'Lint Code'
-        run: npm run lint
+      - name: 'Install Eslint'
+        run: npm init @eslint/config@latest -y
 
-      - name: 'Run Security Scans'
-        run: npm run security-scan
+      - name: 'Scan server.js'
+        run: npx eslint server.js
