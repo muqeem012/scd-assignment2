@@ -17,8 +17,10 @@ jobs:
       - name: 'Checkout Repository'
         uses: actions/checkout@v2
 
-      - name: 'Install Eslint'
-        run: npm init @eslint/config@latest -- --config eslint-config-standard
+      - uses: stefanoeb/eslint-action@1.0.2
 
-      - name: 'Scan server.js'
-        run: npx eslint server.js
+      # - name: 'Install Eslint'
+      #   run: npm init @eslint/config@latest -- --config eslint-config-standard
+
+      # - name: 'Scan server.js'
+      #   run: npx eslint server.js
